@@ -9,5 +9,5 @@ test("part1", () => {
 })
 
 test("part2", () => {
-  expect(getSolutionPart2()).toBe(1728)
+  expect(getSolutionPart2()).toBe(7928162)
 })
