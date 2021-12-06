@@ -6,29 +6,15 @@ function inputDataLinesIntegers(filename = "input.txt") {
 
 const data = inputDataLinesIntegers()
 
-const constructDay = () => {
-  const zeros = data.filter((x) => x == 0)
-  const ones = data.filter((x) => x == 1)
-  const twos = data.filter((x) => x == 2)
-  const threes = data.filter((x) => x == 3)
-  const fours = data.filter((x) => x == 4)
-  const fives = data.filter((x) => x == 5)
-  const sixs = data.filter((x) => x == 6)
-  const sevens = data.filter((x) => x == 7)
-  const eights = data.filter((x) => x == 8)
-
-  return [
-    zeros.length,
-    ones.length,
-    twos.length,
-    threes.length,
-    fours.length,
-    fives.length,
-    sixs.length,
-    sevens.length,
-    eights.length,
-  ]
+const constructDay0 = () => {
+  let day = []
+  for (let step = 0; step <= 8; step++) {
+    day.push(data.filter((x) => x == step).length)
+  }
+  return day
 }
+
+const day = constructDay0()
 
 const calculate = (days, day) => {
   for (let step = 1; step <= days; step++) {
@@ -42,13 +28,13 @@ const calculate = (days, day) => {
 }
 
 const getSolutionPart1 = () => {
-  const day = constructDay()
-  return calculate(80, day)
+  const dayA = [...day]
+  return calculate(80, dayA)
 }
 
 const getSolutionPart2 = () => {
-  const day = constructDay()
-  return calculate(256, day)
+  const dayB = [...day]
+  return calculate(256, dayB)
 }
 
 const part = process.env.part || "part1"
